@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jules Vermeulen — Candidature Chargé de Communication · Caisse d'Épargne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #E2001A;
+      --red-dark: #b5001b;
+      --dark: #1a1a1a;
+      --grey: #f5f5f5;
+      --grey-mid: #e0e0e0;
+      --text: #333;
+      --text-light: #666;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 3px solid var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-logo svg { width: 36px; height: 36px; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: .875rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--red); }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 64px;
+      background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--red);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span { color: var(--red); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.7);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.75rem;
+      border-radius: 4px;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.4);
+    }
+
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--red);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── MOTIVATION ── */
+    #motivation { background: var(--grey); }
+
+    .motivation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) { .motivation-grid { grid-template-columns: 1fr; } }
+
+    .motivation-text p {
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      line-height: 1.75;
+    }
+
+    .quote-block {
+      border-left: 4px solid var(--red);
+      padding: 1.25rem 1.5rem;
+      background: #fff;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .quote-block cite {
+      display: block;
+      margin-top: .75rem;
+      font-style: normal;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ── COMPÉTENCES ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      border: 1.5px solid var(--grey-mid);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--red);
+      box-shadow: 0 4px 20px rgba(226,0,26,.08);
+    }
+
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(226,0,26,.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--red);
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+      color: var(--dark);
+    }
+
+    .skill-card p {
+      font-size: .875rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .skill-tags {
+      margin-top: .75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .tag {
+      font-size: .73rem;
+      font-weight: 500;
+      padding: .25rem .65rem;
+      border-radius: 100px;
+      background: var(--grey);
+      color: var(--text-light);
+    }
+
+    /* ── LETTRE ── */
+    #lettre { background: var(--grey); }
+
+    .lettre-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem;
+      box-shadow: 0 2px 24px rgba(0,0,0,.06);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .lettre-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--grey-mid);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .lettre-from strong { display: block; font-size: 1rem; color: var(--dark); }
+    .lettre-from span { font-size: .85rem; color: var(--text-light); }
+    .lettre-date { font-size: .85rem; color: var(--text-light); }
+
+    .lettre-body p {
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .lettre-body .highlight {
+      font-style: italic;
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .lettre-sign {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--grey-mid);
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* ── PARCOURS ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: var(--grey-mid);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.6rem;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--red);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--red);
+    }
+
+    .timeline-date {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+    }
+
+    .timeline-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: .2rem;
+    }
+
+    .timeline-item .org {
+      font-size: .875rem;
+      color: var(--text-light);
+      margin-bottom: .5rem;
+    }
+
+    .timeline-item p {
+      font-size: .875rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); color: #fff; text-align: center; }
+
+    #contact .section-title { color: #fff; }
+
+    #contact p {
+      color: rgba(255,255,255,.65);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .7rem 1.4rem;
+      border: 1.5px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: all .2s;
+    }
+
+    .contact-link:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,.4);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+    }
+
+    footer span { color: var(--red); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="4" fill="#E2001A"/>
+      <path d="M8 26V10h5.5l4.5 8.5L22.5 10H28v16h-4.5V18l-3.5 6h-4l-3.5-6v8H8z" fill="white"/>
+    </svg>
+    Jules Vermeulen
+  </a>
+  <ul class="nav-links">
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#lettre">Lettre</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Candidature 2026</div>
+  <h1>Chargé de <span>Communication</span><br>Caisse d'Épargne</h1>
+  <p>Passionné par la communication institutionnelle et les organisations à fort impact territorial.</p>
+  <div class="hero-actions">
+    <a href="#lettre" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+      Lire la lettre
+    </a>
+    <a href="#contact" class="btn btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Me contacter
+    </a>
+  </div>
+</section>
+
+<!-- MOTIVATION -->
+<section id="motivation">
+  <div class="container">
+    <p class="section-label">Pourquoi la Caisse d'Épargne</p>
+    <h2 class="section-title">Une candidature motivée,<br>un choix réfléchi</h2>
+    <div class="section-divider"></div>
+    <div class="motivation-grid">
+      <div class="motivation-text">
+        <p>
+          La Caisse d'Épargne incarne un modèle bancaire unique en France : celui d'une banque coopérative régionale, dont l'utilité sociale et l'ancrage territorial ne sont pas de simples arguments marketing, mais des engagements inscrits dans son ADN depuis plus de deux siècles.
+        </p>
+        <p>
+          C'est précisément ce positionnement singulier qui motive ma candidature. Contribuer à la communication d'un acteur dont les missions ont un impact concret sur les territoires et les habitants, c'est donner du sens à mon métier.
+        </p>
+        <p>
+          Je souhaite mettre mes compétences en communication digitale et éditoriale au service d'une institution dont les valeurs — proximité, responsabilité, solidarité — me correspondent profondément.
+        </p>
+      </div>
+      <div>
+        <div class="quote-block">
+          "Quand on est une banque coopérative régionale, on est forcément plus utile."
+          <cite>— Caisse d'Épargne</cite>
+        </div>
+        <br>
+        <div class="quote-block">
+          "Rejoindre la Caisse d'Épargne, c'est contribuer à une communication qui a du sens : valoriser les engagements d'un acteur bancaire majeur, au service de ses territoires."
+          <cite>— Jules Vermeulen</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="container">
+    <p class="section-label">Ce que j'apporte</p>
+    <h2 class="section-title">Compétences</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <h3>Communication digitale</h3>
+        <p>Stratégie de contenu, gestion de réseaux sociaux, community management et animation de communautés.</p>
+        <div class="skill-tags">
+          <span class="tag">LinkedIn</span>
+          <span class="tag">Instagram</span>
+          <span class="tag">Facebook</span>
+          <span class="tag">Twitter / X</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Rédaction & édition</h3>
+        <p>Rédaction de contenus à fort impact : articles, newsletters, communiqués de presse, supports institutionnels.</p>
+        <div class="skill-tags">
+          <span class="tag">Communiqués</span>
+          <span class="tag">Newsletter</span>
+          <span class="tag">Copywriting</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3>Création visuelle</h3>
+        <p>Production de supports visuels print et digitaux, identité graphique, mise en page et PAO.</p>
+        <div class="skill-tags">
+          <span class="tag">Photoshop</span>
+          <span class="tag">InDesign</span>
+          <span class="tag">Illustrator</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Web & digital</h3>
+        <p>Gestion de sites WordPress/CMS, notions SEO, email marketing et analyse de performance.</p>
+        <div class="skill-tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">SEO</span>
+          <span class="tag">Mailchimp</span>
+          <span class="tag">Analytics</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Relations & événementiel</h3>
+        <p>Relations presse, organisation et promotion d'événements institutionnels, coordination de parties prenantes.</p>
+        <div class="skill-tags">
+          <span class="tag">Relations presse</span>
+          <span class="tag">Événementiel</span>
+          <span class="tag">Coordination</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Stratégie & analyse</h3>
+        <p>Élaboration de plans de communication, définition d'objectifs, KPIs et reporting de performance.</p>
+        <div class="skill-tags">
+          <span class="tag">Plan de com.</span>
+          <span class="tag">KPIs</span>
+          <span class="tag">Reporting</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LETTRE -->
+<section id="lettre">
+  <div class="container">
+    <p class="section-label">Ma candidature</p>
+    <h2 class="section-title">Lettre de motivation</h2>
+    <div class="section-divider"></div>
+    <div class="lettre-card">
+      <div class="lettre-header">
+        <div class="lettre-from">
+          <strong>Jules Vermeulen</strong>
+          <span>vermeulenjules1@gmail.com</span>
+        </div>
+        <div class="lettre-date">Mai 2026</div>
+      </div>
+      <div class="lettre-body">
+        <p>Madame, Monsieur,</p>
+        <p>
+          Actuellement en formation dans le domaine de la communication, je me permets de vous adresser ma candidature au poste de <strong>Chargé(e) de Communication</strong> au sein de votre établissement.
+        </p>
+        <p>
+          La Caisse d'Épargne incarne, à mes yeux, un modèle bancaire singulier : celui d'une banque coopérative régionale, profondément ancrée dans ses territoires, et dont la raison d'être dépasse la simple performance financière. C'est précisément ce positionnement — <span class="highlight">"Quand on est une banque coopérative régionale, on est forcément plus utile"</span> — qui motive mon souhait de rejoindre vos équipes.
+        </p>
+        <p>
+          Fort(e) d'une expérience en communication et marketing, j'ai développé des compétences solides en production de contenus rédactionnels et visuels, en gestion de réseaux sociaux, ainsi qu'en coordination de projets de communication multi-supports. J'attache une importance particulière à la cohérence des messages véhiculés et à l'adéquation entre les valeurs d'une organisation et sa communication externe.
+        </p>
+        <p>
+          Intégrer la Caisse d'Épargne représenterait pour moi l'opportunité de mettre ces compétences au service d'une institution dont les engagements — accessibilité bancaire, soutien aux territoires, responsabilité sociétale — résonnent avec mes propres convictions professionnelles.
+        </p>
+        <p>
+          Je me tiens à votre disposition pour un entretien à votre convenance, afin de vous présenter plus en détail mon parcours et ma motivation.
+        </p>
+        <p>Dans l'attente de votre retour, je vous adresse mes sincères salutations.</p>
+      </div>
+      <div class="lettre-sign">Jules Vermeulen</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="container">
+    <p class="section-label">Mon profil</p>
+    <h2 class="section-title">Parcours</h2>
+    <div class="section-divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">En cours</div>
+        <h3>Formation en Communication</h3>
+        <div class="org">À compléter</div>
+        <p>À compléter avec votre formation actuelle.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Expérience</div>
+        <h3>Expérience en Communication / Marketing</h3>
+        <div class="org">À compléter</div>
+        <p>À compléter avec vos expériences professionnelles ou stages.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Projet</div>
+        <h3>Réalisations & Portfolio</h3>
+        <div class="org">Communications & projets personnels</div>
+        <p>Création de contenus, gestion de réseaux sociaux, productions visuelles — à détailler dans le dossier portfolio.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label" style="color: rgba(255,255,255,.5)">Discutons</p>
+    <h2 class="section-title">Me contacter</h2>
+    <p>Disponible pour un entretien à votre convenance. N'hésitez pas à me solliciter.</p>
+    <div class="contact-links">
+      <a href="mailto:vermeulenjules1@gmail.com" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        vermeulenjules1@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/jules-vermeulen" target="_blank" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/vermeulenjules1-source/candidature-caisse-epargne" target="_blank" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Jules Vermeulen — Candidature Chargé de Communication · <span>Caisse d'Épargne</span></p>
+</footer>
+
+</body>
+</html>
